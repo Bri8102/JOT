@@ -1,0 +1,17 @@
+<p>
+  <strong>Title:</strong>
+  <%= @list.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @list.description %>
+</p>
+
+<div id="todo_items_wrapper">
+ <%= render @list.tasks %>
+</div>
+
+<%= link_to "Create Task", new_list_task_path(@list) %> |
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>

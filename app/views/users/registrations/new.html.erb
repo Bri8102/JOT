@@ -1,0 +1,20 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+<p><%= f.label :name %></p>
+<p><%= f.text_field :full_name, autofocus: true, autocomplete: "full_name" %></p>
+<p><%= f.label :email %></p>
+<p><%= f.text_field :email, autofocus: true, autocomplete: "email" %></p>
+<p><%= f.label :password %></p>
+    <% if @minimum_password_length = 5 %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+<p><%= f.password_field :password, autocomplete: "new-password" %></p>
+<p><%= f.label :password_confirmation %></p>
+<p><%= f.password_field :password_confirmation, required: true %></p>
+<%= f.submit "Sign Up"%>
+<% end %>
+
+<%# <%= render "users/shared/links" %> 

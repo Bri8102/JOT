@@ -1,0 +1,9 @@
+<%= form_for([@list, @list.tasks.build]) do |f| %>
+ <%= f.text_field :name, placeholder: "New Task" %>
+ <%# <%= f.label :Assigned_To, placeholder: "Assigned To" %>
+ <%# <%= f.collection_select(:user, User.all, :id, :full_name) %>
+ <%= f.submit "Create Task" %>
+<% end %>
+
+
+<!-- form_with model: [@list, @task], local: true -->

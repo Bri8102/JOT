@@ -1,0 +1,19 @@
+
+  <h2> Welcome, <%= current_user.email if !current_user.nil? %></h2>
+    
+  <h1>Here are your Lists</h1>
+
+  <% @lists.each do |list| %>
+    <div class="index_row clearfix">
+      <h2 class="todo_list_title"><%= link_to list.title, list %></h2>
+      <p class="todo_list_sub_title"><%= list.description %></p>
+    </div>
+    <% end %>
+
+    <div class="links">
+      <%= link_to "Create List", new_list_path %>
+    </div>
+
+    
+ 
+<% end %>
