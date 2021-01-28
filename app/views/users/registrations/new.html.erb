@@ -5,10 +5,12 @@
 
 <p><%= f.label :full_name %></p>
 <p><%= f.text_field :full_name, autofocus: true, autocomplete: "full_name" %></p>
+<%= binding.pry %>
 <p><%= f.label :email %></p>
 <p><%= f.text_field :email, autofocus: true, autocomplete: "email" %></p>
+<%= binding.pry %>
 <p><%= f.label :password %></p>
-    <% if @minimum_password_length = 5 %>
+    <% if @minimum_password_length = 6 %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
 <p><%= f.password_field :password, autocomplete: "new-password" %></p>

@@ -2,7 +2,6 @@
  <% if task.completed? %>
   <div class="complete">
    <%= link_to "Mark as Complete", complete_list_task_path(@list, task.id), method: :patch %>
-   <%= binding.pry %>
   </div>
   <div class="todo_item">
    <p style="opacity: 0.4;"><strike><%= task.name %></strike></p>

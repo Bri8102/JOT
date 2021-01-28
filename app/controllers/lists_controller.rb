@@ -1,9 +1,11 @@
 class ListsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
 
     def index
-      @lists = List.all
+      # @lists = List.all
+      @lists = current_user.lists
       # @list.user_id = current_user.id
     end
     

@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     before_action :set_list
-    # before_action :set_task
+    before_action :set_task, only: [:show, :complete]
 
     # def index
     #     @task = Task.all
@@ -16,11 +16,6 @@ class TasksController < ApplicationController
         # binding.pry
       end
       @user = User.find_by_id(params[:id])
-    end
-
-    def complete
-      @task.update_attribute(:completed_at, Time.now)
-      redirect_to @list, notice: "Todo item completed"
     end
     
     def create
@@ -47,6 +42,13 @@ class TasksController < ApplicationController
       redirect_to @list
     end
 
+    def complete
+      binding.pry
+      @task.update_attribute(:completed_at, Time.now)
+      binding.pry
+      redirect_to @list, notice: "Todo item completed"
+    end
+
     private
 
     def set_list
@@ -54,9 +56,9 @@ class TasksController < ApplicationController
     end
 
 
-    # def set_task
-    #   @task = @list.tasks.find(params[:id])
-    # end
+    def set_task
+      @task = @list.tasks.find(params[:id])
+    end
     
     def task_params
       params.require(:task).permit(:name)
