@@ -1,9 +1,11 @@
 <%= form_for([@list, @list.tasks.build]) do |f| %>
  <%= f.text_field :name, placeholder: "New Task" %>
- <%# <%= f.label :Assigned_To, placeholder: "Assigned To" %>
- <%# <%= f.collection_select(:user, User.all, :id, :full_name) %>
+ <%#= binding.pry %>
+ <%#= f.label :Assigned_To, placeholder: "Assigned To" %>
+ <%#= f.select User.all.select {|user| user.email } %>
+ <%#= binding.pry %>
  <%= f.submit "Create Task" %>
 <% end %>
 
-
+<!-- User.all.select{|user| user.team=="Hornets" } -->
 <!-- form_with model: [@list, @task], local: true -->

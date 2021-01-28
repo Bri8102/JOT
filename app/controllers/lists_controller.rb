@@ -8,11 +8,12 @@ class ListsController < ApplicationController
     end
     
     def show
-      
+    
+      @list.user_id = current_user.id
       @task = Task.find_by_id(params[:id])
-       binding.pry
+      @user = User.find_by_id(params[:id])
 
-      @task = Task.new
+      # @task = Task.new
       # binding.pry
     end
   

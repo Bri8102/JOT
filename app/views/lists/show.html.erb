@@ -8,10 +8,14 @@
   <%= @list.description %>
 </p>
 
+
+
 <div id="todo_items_wrapper">
  <%= render @list.tasks %>
 </div>
 
-<%= link_to "Create Task", new_list_task_path(@list) %> |
+<% if current_user.email != nil %>
+  <%= link_to "Create Task", new_list_task_path(@list) %> |
+<% end %>
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>

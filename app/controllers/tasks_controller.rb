@@ -10,12 +10,13 @@ class TasksController < ApplicationController
       if params[:list_id]
         @list = List.find_by_id(params[:list_id])
         @task = @list.tasks.build
-      binding.pry
+      # binding.pry
       else
         @task = Task.new
-        binding.pry
+        # binding.pry
       end
-  end
+      @user = User.find_by_id(params[:id])
+    end
 
     def complete
       @task.update_attribute(:completed_at, Time.now)
@@ -38,7 +39,11 @@ class TasksController < ApplicationController
 
     def destroy
       @task = @list.tasks.find(params[:id])
-      @task.destroy
+       if @task.destroy
+          flash[:success] = "Task was deleted."
+       else
+          flash[:error] = "Task couldn't be deleted."
+       end
       redirect_to @list
     end
 

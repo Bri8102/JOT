@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
         @user = User.from_omniauth(request.env["omniauth.env"])
         sign_in_and_redirect @user
     end
+
+    # def current_user
+    #     #If current user is null, set it their session to user_id otherwise keep the current value
+    #     @user ||= User.find_by(id: session[:user_id])
+    # end
 end

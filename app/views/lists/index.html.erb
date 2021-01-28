@@ -1,7 +1,7 @@
 
   <h2> Welcome, <%= current_user.email if !current_user.nil? %></h2>
     
-  <h1>Here are your Lists</h1>
+  <h4>Here are all Lists</h4>
 
   <% @lists.each do |list| %>
     <div class="index_row clearfix">
@@ -16,4 +16,3 @@
 
     
  
-<% end %>
